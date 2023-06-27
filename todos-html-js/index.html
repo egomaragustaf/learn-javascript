@@ -6,6 +6,7 @@
     <title>To Do List</title>
   </head>
   <body>
+    <legend>To Do List</legend>
     <form id="todo-form">
       <label for="todo-input">Add new task</label>
       <input type="text" id="todo-input" name="todo-input" class="todo-input" />
@@ -15,9 +16,16 @@
     </form>
 
     <div id="list-container" class="list-container">
-      <ul id="todo-list" class="todo-list">
-      </ul>
+      <div id="todo-list" class="todo-list"></div>
     </div>
+
+    <button
+      id="delete-completed-task"
+      name="delete-completed-task"
+      class="delete-completed-task"
+    >
+      Delete Completed Task
+    </button>
 
     <script src="index.js"></script>
   </body>
