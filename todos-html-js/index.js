@@ -31,8 +31,6 @@ todoFormElement.onsubmit = function (event) {
   });
 
   clearCompletedTask.addEventListener("click", () => {
-    checkBoxValue.checked
-      ? todoListElement.removeChild(listValue)
-      : todoListElement;
+    if (checkBoxValue.checked) return listValue.remove();
   });
 };
