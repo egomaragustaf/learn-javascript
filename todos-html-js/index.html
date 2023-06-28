@@ -14,9 +14,9 @@
   </head>
   <body>
     <div class="container">
-      <fieldset class="todo-field">
-        <legend class="todo-legend">To Do List</legend>
-        <form id="todo-form" class="todo-form">
+      <form id="todo-form" class="todo-form">
+        <fieldset class="todo-field">
+          <legend class="todo-legend">To Do List</legend>
           <label for="todo-input">Add new task</label>
           <input
             type="text"
@@ -28,9 +28,12 @@
           <button type="submit" id="submit" name="submit" class="submit">
             Add
           </button>
-        </form>
-        <ul id="todo-list" class="todo-list"></ul>
-      </fieldset>
+        </fieldset>
+
+        <fieldset>
+          <ul id="todo-list" class="todo-list"></ul>
+        </fieldset>
+      </form>
 
       <button
         id="delete-completed-task"
