@@ -11,9 +11,7 @@ todoFormElement.onsubmit = function (event) {
   const listText = document.createTextNode(todoInputValue);
   const checkBoxValue = document.createElement("input");
 
-  listValue.classList.add("list");
   checkBoxValue.type = "checkbox";
-  checkBoxValue.classList.add("toggle");
   listValue.appendChild(checkBoxValue);
   listValue.appendChild(listText);
   todoListElement.appendChild(listValue);
@@ -26,5 +24,11 @@ todoFormElement.onsubmit = function (event) {
 
   deleteButton.addEventListener("click", () => {
     todoListElement.removeChild(listValue);
+  });
+
+  clearCompletedTask.addEventListener("click", () => {
+    checkBoxValue.checked
+      ? todoListElement.removeChild(listValue)
+      : todoListElement;
   });
 };

@@ -4,28 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <legend>To Do List</legend>
-    <form id="todo-form">
-      <label for="todo-input">Add new task</label>
-      <input type="text" id="todo-input" name="todo-input" class="todo-input" />
-      <button type="submit" id="submit" name="submit" class="submit">
-        Add
-      </button>
-    </form>
+    <div class="container">
+      <legend class="todo-legend">To Do List</legend>
+      <form id="todo-form" class="todo-form">
+        <label for="todo-input">Add new task</label>
+        <input
+          type="text"
+          id="todo-input"
+          name="todo-input"
+          class="todo-input"
+          placeholder="What needs to be done?"
+        />
+        <button type="submit" id="submit" name="submit" class="submit">
+          Add
+        </button>
+      </form>
 
-    <div id="list-container" class="list-container">
       <div id="todo-list" class="todo-list"></div>
-    </div>
 
-    <button
-      id="delete-completed-task"
-      name="delete-completed-task"
-      class="delete-completed-task"
-    >
-      Delete Completed Task
-    </button>
+      <button
+        id="delete-completed-task"
+        name="delete-completed-task"
+        class="delete-completed-task"
+      >
+        Delete Completed Task
+      </button>
+    </div>
 
     <script src="index.js"></script>
   </body>
