@@ -11,6 +11,10 @@ todoFormElement.onsubmit = function (event) {
   const listText = document.createTextNode(todoInputValue);
   const checkBoxValue = document.createElement("input");
 
+  if (todoInputValue !== "" || todoInputValue !== null) {
+    todoInputElement.value = "";
+  }
+
   checkBoxValue.type = "checkbox";
   listValue.appendChild(checkBoxValue);
   listValue.appendChild(listText);
