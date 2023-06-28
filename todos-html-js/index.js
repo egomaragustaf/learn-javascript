@@ -7,7 +7,7 @@ todoFormElement.onsubmit = function (event) {
   event.preventDefault();
 
   const todoInputValue = todoInputElement.value;
-  const listValue = document.createElement("div");
+  const listValue = document.createElement("li");
   const listText = document.createTextNode(todoInputValue);
   const checkBoxValue = document.createElement("input");
 

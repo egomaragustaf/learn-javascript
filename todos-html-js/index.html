@@ -14,22 +14,24 @@
   </head>
   <body>
     <div class="container">
-      <legend class="todo-legend">To Do List</legend>
-      <form id="todo-form" class="todo-form">
-        <label for="todo-input">Add new task</label>
-        <input
-          type="text"
-          id="todo-input"
-          name="todo-input"
-          class="todo-input"
-          placeholder="What needs to be done?"
-        />
-        <button type="submit" id="submit" name="submit" class="submit">
-          Add
-        </button>
-      </form>
+      <fieldset class="todo-field">
+        <legend class="todo-legend">To Do List</legend>
+        <form id="todo-form" class="todo-form">
+          <label for="todo-input">Add new task</label>
+          <input
+            type="text"
+            id="todo-input"
+            name="todo-input"
+            class="todo-input"
+            placeholder="What needs to be done?"
+          />
+          <button type="submit" id="submit" name="submit" class="submit">
+            Add
+          </button>
+        </form>
 
-      <div id="todo-list" class="todo-list"></div>
+        <ul id="todo-list" class="todo-list"></ul>
+      </fieldset>
 
       <button
         id="delete-completed-task"

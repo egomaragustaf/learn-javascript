@@ -21,6 +21,13 @@ body {
   gap: 0.5rem;
 }
 
+.todo-field {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .todo-legend {
   font-size: 46px;
 }
@@ -40,15 +47,21 @@ body {
 .todo-list {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
-.todo-list > div {
+.todo-list > li {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.todo-list > li > button {
+  padding: 5px;
+  font-weight: 400;
 }
 
 button {
