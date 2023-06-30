@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subscription Form</title>
+  </head>
+  <body>
+    <form id="subsForm" class="subsForm">
+      <fieldset id="fieldForm" class="fieldForm">
+        <legend>Form Subscription</legend>
+        <div>
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            name="firstName"
+            id="firstName"
+            placeholder="First Name"
+            autocomplete="on"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            name="lastName"
+            id="lastName"
+            placeholder="Last Name"
+            autocomplete="on"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="example@mail.com"
+            autocomplete="on"
+            required
+          />
+        </div>
+      </fieldset>
+      <button type="submit" id="submit" value="submit">Subscribe</button>
+      <button type="reset" id="reset" value="reset">Reset</button>
+    </form>
+
+    <div id="outputValue" class="outputValue"></div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
