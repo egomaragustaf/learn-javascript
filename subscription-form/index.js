@@ -9,11 +9,9 @@ subsFormElement.addEventListener("submit", saveSubscripton);
 function saveSubscripton(event) {
   event.preventDefault();
 
-  const subsFormData = new FormData(subsFormElement);
-
-  const firstName = subsFormData.get("firstName");
-  const lastName = subsFormData.get("lastName");
-  const email = subsFormData.get("email");
+  const firstName = subsFirstNameElement.value;
+  const lastName = subsLastNameElement.value;
+  const email = subsEmailElement.value;
   const addElementOutput = document.createElement("div");
 
   subsFormOutputElement.appendChild(addElementOutput);
