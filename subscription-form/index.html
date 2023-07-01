@@ -4,50 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Subscription Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form id="subsForm" class="subsForm">
-      <fieldset id="fieldForm" class="fieldForm">
-        <legend>Form Subscription</legend>
-        <div>
-          <label for="firstName">First Name</label>
-          <input
-            type="text"
-            name="firstName"
-            id="firstName"
-            placeholder="First Name"
-            autocomplete="on"
-            required
-          />
-        </div>
+    <div class="container">
+      <h1>Subscribe Our Newsletter</h1>
+      <p>Join us for FREE to get instant email updates!</p>
+      <form id="subsForm" class="subsForm">
+        <fieldset id="fieldForm" class="fieldForm">
+          <legend class="legend" id="legend">Form Subscription</legend>
+          <div>
+            <label for="firstName">First Name</label>
+            <input
+              type="text"
+              name="firstName"
+              id="firstName"
+              placeholder="First Name"
+              autocomplete="on"
+              required
+            />
+          </div>
 
-        <div>
-          <label for="lastName">Last Name</label>
-          <input
-            type="text"
-            name="lastName"
-            id="lastName"
-            placeholder="Last Name"
-            autocomplete="on"
-            required
-          />
-        </div>
+          <div>
+            <label for="lastName">Last Name</label>
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              placeholder="Last Name"
+              autocomplete="on"
+              required
+            />
+          </div>
 
-        <div>
-          <label for="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="example@mail.com"
-            autocomplete="on"
-            required
-          />
-        </div>
-      </fieldset>
-      <button type="submit" id="submit" value="submit">Subscribe</button>
-      <button type="reset" id="reset" value="reset">Reset</button>
-    </form>
+          <div>
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="example@mail.com"
+              autocomplete="on"
+              required
+            />
+          </div>
+          <button type="submit" id="submit" value="submit">Subscribe</button>
+          <button type="reset" id="reset" value="reset">Reset</button>
+        </fieldset>
+      </form>
+    </div>
 
     <div id="outputValue" class="outputValue"></div>
 
