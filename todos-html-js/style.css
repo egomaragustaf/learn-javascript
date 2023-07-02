@@ -14,9 +14,9 @@ body {
 
 .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
   height: 100vh;
   gap: 0.5rem;
 }
@@ -40,19 +40,19 @@ body {
   font-size: 46px;
 }
 
-.todo-input {
+.todo-text {
   padding: 0.75rem;
   font-weight: 400;
 }
 
-.todo-list {
+.todos {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin: 6px 6px 6px 6px;
 }
 
-.todo-list > li {
+.todos > li {
   display: flex;
   flex-direction: row;
   justify-content: left;
@@ -61,7 +61,7 @@ body {
   justify-content: space-between;
 }
 
-.todo-list > li > button {
+.todos > li > button {
   padding: 5px;
   font-weight: 400;
 }

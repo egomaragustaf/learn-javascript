@@ -1,36 +1,81 @@
-const todoFormElement = document.getElementById("todo-form");
-const todoInputElement = document.getElementById("todo-input");
-const todoListElement = document.getElementById("todo-list");
-const clearCompletedTask = document.getElementById("delete-completed-task");
+let todos = [
+  { id: 1, text: "a", isCompleted: false },
+  { id: 2, text: "b", isCompleted: true },
+];
 
-todoFormElement.onsubmit = function (event) {
+const todoFormElement = document.getElementById("todo-form");
+const todoTextElement = document.getElementById("todo-text");
+const todosElement = document.getElementById("todos");
+const clearCompletedTodosElement = document.getElementById(
+  "clear-completed-todos"
+);
+
+todoFormElement.addEventListener("submit", submitTodo);
+clearCompletedTodosElement.addEventListener("submit", clearCompletedTodos);
+
+function renderTodos() {
+  todosElement.innerHTML = "";
+
+  todos.forEach((todo) => {
+    const todoElement = document.createElement("li");
+    todoElement.innerHTML = `
+      <form onsubmit="completeTodoById(event)">
+        <input type="hidden" name="todo-id" value="${todo.id}" />
+        <input type="checkbox" name="todo-checked" ${
+          todo.isCompleted && "checked"
+        } />
+      </form>
+      <span>${todo.text}</span>
+      <form onsubmit="deleteTodoById(event)">
+        <input type="hidden" name="todo-id" value="${todo.id}" />
+        <button type="submit">Delete</button>
+      </form>
+      `;
+    todosElement.appendChild(todoElement);
+  });
+
+  console.log(todos);
+}
+
+function submitTodo(event) {
   event.preventDefault();
 
-  const todoInputValue = todoInputElement.value;
-  const listValue = document.createElement("li");
-  const listText = document.createTextNode(todoInputValue);
-  const checkBoxValue = document.createElement("input");
+  const todoText = todoTextElement.value;
+  if (String(todoText) === "") return null;
 
-  if (todoInputValue !== "" || todoInputValue !== null) {
-    todoInputElement.value = "";
-  }
+  const todoId = todos[todos.length - 1].id + 1; // get last todo id + 1
 
-  checkBoxValue.type = "checkbox";
-  listValue.appendChild(checkBoxValue);
-  listValue.appendChild(listText);
-  todoListElement.appendChild(listValue);
+  const newTodo = {
+    id: todoId,
+    text: todoText,
+    isCompleted: false,
+  };
 
-  const deleteButton = document.createElement("button");
+  todos = [...todos, newTodo];
 
-  deleteButton.classList.add("delete");
-  deleteButton.innerText = "Delete";
-  listValue.appendChild(deleteButton);
+  todoTextElement.value = "";
 
-  deleteButton.addEventListener("click", () => {
-    todoListElement.removeChild(listValue);
-  });
+  renderTodos();
+}
 
-  clearCompletedTask.addEventListener("click", () => {
-    if (checkBoxValue.checked) return listValue.remove();
-  });
-};
+function deleteTodoById(event) {
+  event.preventDefault();
+
+  console.log("Submit to delete todo");
+
+  const formElement = event.target;
+  const formData = new FormData(formElement);
+  const todoId = Number(formData.get("todo-id"));
+
+  todos = todos.filter((todo) => todo.id !== todoId);
+
+  renderTodos();
+}
+
+function clearCompletedTodos(event) {
+  event.preventDefault();
+  todos = todos.filter((todo) => todo.isCompleted === false);
+  renderTodos();
+}
+
+renderTodos();

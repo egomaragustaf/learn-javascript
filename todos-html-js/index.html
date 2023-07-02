@@ -17,31 +17,31 @@
       <form id="todo-form" class="todo-form">
         <fieldset class="todo-field">
           <legend class="todo-legend">To Do List</legend>
-          <label for="todo-input">Add new task</label>
+          <label for="todo-text">Add new todo</label>
           <input
             type="text"
-            id="todo-input"
-            name="todo-input"
-            class="todo-input"
+            id="todo-text"
+            name="todo-text"
+            class="todo-text"
             placeholder="What needs to be done?"
           />
           <button type="submit" id="submit" name="submit" class="submit">
             Add
           </button>
         </fieldset>
-
-        <fieldset>
-          <ul id="todo-list" class="todo-list"></ul>
-        </fieldset>
       </form>
 
-      <button
-        id="delete-completed-task"
-        name="delete-completed-task"
-        class="delete-completed-task"
-      >
-        Delete Completed Task
-      </button>
+      <section>
+        <ul id="todos" class="todos">
+          <!--  -->
+        </ul>
+      </section>
+
+      <form id="clear-completed-todos">
+        <button type="submit" class="clear-completed-todos">
+          Clear Completed Todos
+        </button>
+      </form>
     </div>
 
     <script src="index.js"></script>
