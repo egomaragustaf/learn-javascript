@@ -16,8 +16,8 @@
     <div class="container">
       <h1>Subscribe Our Newsletter</h1>
       <p>Join us for FREE to get instant email updates!</p>
-      <form id="subsForm" class="subsForm">
-        <fieldset id="fieldForm" class="fieldForm">
+      <form id="subscribeForm" class="subscribeForm">
+        <fieldset class="fieldForm">
           <legend class="legend" id="legend">Form Subscription</legend>
           <div>
             <label for="firstName">First Name</label>
@@ -54,13 +54,19 @@
               required
             />
           </div>
+
           <button type="submit" id="submit" value="submit">Subscribe</button>
-          <button type="reset" id="reset" value="reset">Reset</button>
+          <div>
+            <button type="reset">Reset</button>
+            <button type="button" id="retry">Retry</button>
+          </div>
         </fieldset>
       </form>
     </div>
 
-    <div id="outputValue" class="outputValue"></div>
+    <div id="successMessage" class="successMessage">
+      <!-- ... -->
+    </div>
 
     <script src="index.js"></script>
   </body>

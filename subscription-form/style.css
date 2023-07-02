@@ -42,7 +42,7 @@ p {
   color: #fff;
 }
 
-.subsForm {
+.subscribeForm {
   color: #fff;
 }
 
@@ -91,7 +91,7 @@ button:hover {
   background-color: #1e293b;
 }
 
-.outputValue div {
+.successMessage div {
   font-size: x-large;
   width: 30rem;
   color: #fff;

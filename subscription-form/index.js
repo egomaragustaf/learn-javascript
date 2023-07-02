@@ -1,25 +1,24 @@
-const subsFormElement = document.getElementById("subsForm");
-const subsFirstNameElement = document.getElementById("firstName");
-const subsLastNameElement = document.getElementById("lastName");
-const subsEmailElement = document.getElementById("email");
-const subsFormOutputElement = document.getElementById("outputValue");
+const subscribeFormElement = document.getElementById("subscribeForm");
+const firstNameElement = document.getElementById("firstName");
+const lastNameElement = document.getElementById("lastName");
+const emailElement = document.getElementById("email");
+const successMessageElement = document.getElementById("successMessage");
+const retryButtonElement = document.getElementById("retry");
 
-subsFormElement.addEventListener("submit", saveSubscripton);
+subscribeFormElement.addEventListener("submit", subscribeEmail);
+retryButtonElement.addEventListener("click", retrySubscribe);
 
-function saveSubscripton(event) {
+function retrySubscribe() {
+  subscribeFormElement.reset();
+  successMessageElement.innerText = "";
+}
+
+function subscribeEmail(event) {
   event.preventDefault();
 
-  const firstName = subsFirstNameElement.value;
-  const lastName = subsLastNameElement.value;
-  const email = subsEmailElement.value;
-  const addElementOutput = document.createElement("div");
+  const firstName = firstNameElement.value;
+  const lastName = lastNameElement.value;
+  const email = emailElement.value;
 
-  subsFormOutputElement.appendChild(addElementOutput);
-  addElementOutput.innerText = `Hello ${firstName} ${lastName}! Yout are succcessfully subscribe our newsletter with ${email} email address`;
-
-  const resetButton = document.getElementById("reset");
-
-  resetButton.addEventListener("click", () => {
-    addElementOutput.remove();
-  });
+  successMessageElement.innerText = `Hello ${firstName} ${lastName}! Yout are succcessfully subscribe our newsletter with ${email} email address`;
 }
