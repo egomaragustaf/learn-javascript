@@ -33,8 +33,6 @@ function renderTodos() {
       `;
     todosElement.appendChild(todoElement);
   });
-
-  console.log(todos);
 }
 
 function submitTodo(event) {
@@ -60,8 +58,6 @@ function submitTodo(event) {
 
 function deleteTodoById(event) {
   event.preventDefault();
-
-  console.log("Submit to delete todo");
 
   const formElement = event.target;
   const formData = new FormData(formElement);
