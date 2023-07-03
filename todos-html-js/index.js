@@ -1,7 +1,4 @@
-let todos = [
-  { id: 1, text: "a", isCompleted: false },
-  { id: 2, text: "b", isCompleted: true },
-];
+let todos = [];
 
 const todoFormElement = document.getElementById("todo-form");
 const todoTextElement = document.getElementById("todo-text");
@@ -22,10 +19,10 @@ function renderTodos() {
       <form onsubmit="completeTodoById(event)">
         <input type="hidden" name="todo-id" value="${todo.id}" />
         <input type="checkbox" name="todo-checked" ${
-          todo.isCompleted && "checked"
-        } />
+          todo.isCompleted ? "checked" : ""
+        } onchange="toggleCompleteTodo(this, ${todo.id})" />
       </form>
-      <span>${todo.text}</span>
+      <span${todo.isCompleted ? ' class="completed"' : ""}>${todo.text}</span>
       <form onsubmit="deleteTodoById(event)">
         <input type="hidden" name="todo-id" value="${todo.id}" />
         <button type="submit">Delete</button>
@@ -43,7 +40,7 @@ function submitTodo(event) {
   const todoText = todoTextElement.value;
   if (String(todoText) === "") return null;
 
-  const todoId = todos[todos.length - 1].id + 1; // get last todo id + 1
+  const todoId = Date.now(); // get last todo id + 1
 
   const newTodo = {
     id: todoId,
@@ -54,6 +51,19 @@ function submitTodo(event) {
   todos = [...todos, newTodo];
 
   todoTextElement.value = "";
+
+  renderTodos();
+}
+
+function toggleCompleteTodo(checkbox, todoId) {
+  const isChecked = checkbox.checked;
+
+  todos = todos.map((todo) => {
+    if (todo.id === todoId) {
+      return { ...todo, isCompleted: isChecked };
+    }
+    return todo;
+  });
 
   renderTodos();
 }
@@ -74,7 +84,7 @@ function deleteTodoById(event) {
 
 function clearCompletedTodos(event) {
   event.preventDefault();
-  todos = todos.filter((todo) => todo.isCompleted === false);
+  todos = todos.filter((todo) => !todo.isCompleted);
   renderTodos();
 }
 
