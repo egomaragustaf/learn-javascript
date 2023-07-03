@@ -6,9 +6,11 @@ const todosElement = document.getElementById("todos");
 const clearCompletedTodosElement = document.getElementById(
   "clear-completed-todos"
 );
+const checkAllTodosElement = document.getElementById("check-all-todos");
 
 todoFormElement.addEventListener("submit", submitTodo);
 clearCompletedTodosElement.addEventListener("submit", clearCompletedTodos);
+checkAllTodosElement.addEventListener("submit", checkAllTodos);
 
 function renderTodos() {
   todosElement.innerHTML = "";
@@ -30,6 +32,7 @@ function renderTodos() {
       `;
     todosElement.appendChild(todoElement);
   });
+  console.log(todos);
 }
 
 function submitTodo(event) {
@@ -81,6 +84,16 @@ function deleteTodoById(event) {
 function clearCompletedTodos(event) {
   event.preventDefault();
   todos = todos.filter((todo) => !todo.isCompleted);
+  renderTodos();
+}
+
+function checkAllTodos(event) {
+  event.preventDefault();
+  todos = todos.map((todo) => ({
+    ...todo,
+    isCompleted: true,
+  }));
+
   renderTodos();
 }
 
