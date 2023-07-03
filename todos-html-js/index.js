@@ -30,8 +30,6 @@ function renderTodos() {
       `;
     todosElement.appendChild(todoElement);
   });
-
-  console.log(todos);
 }
 
 function submitTodo(event) {
@@ -70,8 +68,6 @@ function toggleCompleteTodo(checkbox, todoId) {
 
 function deleteTodoById(event) {
   event.preventDefault();
-
-  console.log("Submit to delete todo");
 
   const formElement = event.target;
   const formData = new FormData(formElement);
