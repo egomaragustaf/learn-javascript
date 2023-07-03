@@ -38,7 +38,7 @@ function submitTodo(event) {
   const todoText = todoTextElement.value;
   if (String(todoText) === "") return null;
 
-  const todoId = Date.now(); // get last todo id + 1
+  const todoId = Date.now();
 
   const newTodo = {
     id: todoId,
