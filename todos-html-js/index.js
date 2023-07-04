@@ -96,10 +96,12 @@ function clearCompletedTodos(event) {
 
 function checkAllTodos(event) {
   event.preventDefault();
-  todos = todos.map((todo) => ({
-    ...todo,
-    isCompleted: true,
-  }));
+  todos = todos.map((todo) => {
+    if (!todo.isCompleted) {
+      return { ...todo, isCompleted: true };
+    }
+    return { ...todo, isCompleted: false };
+  });
 
   renderTodos();
 }
