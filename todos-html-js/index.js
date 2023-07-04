@@ -8,6 +8,7 @@ const clearCompletedTodosElement = document.getElementById(
   "clear-completed-todos"
 );
 const checkAllTodosElement = document.getElementById("check-all-todos");
+const uncheckedTodosElement = document.getElementById("unchecked-todos");
 
 todoFormElement.addEventListener("submit", submitTodo);
 clearCompletedTodosElement.addEventListener("submit", clearCompletedTodos);
@@ -23,7 +24,7 @@ function renderTodos() {
         <input type="hidden" name="todo-id" value="${todo.id}" />
         <input type="checkbox" name="todo-checked" ${
           todo.isCompleted ? "checked" : ""
-        } onchange="toggleCompleteTodo(this, ${todo.id})" />
+        } onchange="toggleCompletedTodo(this, ${todo.id})" />
       </form>
       <span class="${todo.isCompleted ? "completed" : ""}" style="${
       todo.isCompleted ? "text-decoration: line-through;" : ""
@@ -36,6 +37,9 @@ function renderTodos() {
     todosElement.appendChild(todoElement);
   });
   console.log(todos);
+
+  const uncheckedTodos = todos.filter((todo) => !todo.isCompleted);
+  uncheckedTodosElement.textContent = "Todo(s) left: " + uncheckedTodos.length;
 }
 
 function submitTodo(event) {
@@ -59,7 +63,7 @@ function submitTodo(event) {
   renderTodos();
 }
 
-function toggleCompleteTodo(checkbox, todoId) {
+function toggleCompletedTodo(checkbox, todoId) {
   const isChecked = checkbox.checked;
 
   todos = todos.map((todo) => {
