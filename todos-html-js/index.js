@@ -1,4 +1,5 @@
 let todos = [];
+let currentTodoId = 1;
 
 const todoFormElement = document.getElementById("todo-form");
 const todoTextElement = document.getElementById("todo-text");
@@ -41,7 +42,7 @@ function submitTodo(event) {
   const todoText = todoTextElement.value;
   if (String(todoText) === "") return null;
 
-  const todoId = todos.length + 1;
+  const todoId = currentTodoId++;
 
   const newTodo = {
     id: todoId,
