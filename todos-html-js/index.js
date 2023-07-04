@@ -25,7 +25,9 @@ function renderTodos() {
           todo.isCompleted ? "checked" : ""
         } onchange="toggleCompleteTodo(this, ${todo.id})" />
       </form>
-      <span${todo.isCompleted ? ' class="completed"' : ""}>${todo.text}</span>
+      <span class="${todo.isCompleted ? "completed" : ""}" style="${
+      todo.isCompleted ? "text-decoration: line-through;" : ""
+    }">${todo.text}</span>
       <form onsubmit="deleteTodoById(event)">
         <input type="hidden" name="todo-id" value="${todo.id}" />
         <button type="submit">Delete</button>
