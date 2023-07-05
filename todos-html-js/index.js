@@ -19,6 +19,9 @@ function renderTodos() {
 
   todos.forEach((todo) => {
     const todoElement = document.createElement("li");
+    todoElement.classList =
+      "flex flex-row w-full justify-between items-center border-b-2";
+
     todoElement.innerHTML = `
       <form onsubmit="completeTodoById(event)">
         <input type="hidden" name="todo-id" value="${todo.id}" />
@@ -31,7 +34,7 @@ function renderTodos() {
     }">${todo.text}</span>
       <form onsubmit="deleteTodoById(event)">
         <input type="hidden" name="todo-id" value="${todo.id}" />
-        <button type="submit">Delete</button>
+        <button type="submit" class="bg-rose-500 hover:bg-rose-600 py-1 px-4 text-white rounded" >X</button>
       </form>
       `;
     todosElement.appendChild(todoElement);
