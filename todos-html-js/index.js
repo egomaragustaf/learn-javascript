@@ -25,13 +25,17 @@ function renderTodos() {
     todoElement.innerHTML = `
       <form onsubmit="completeTodoById(event)">
         <input type="hidden" name="todo-id" value="${todo.id}" />
-        <input type="checkbox" name="todo-checked" ${
-          todo.isCompleted ? "checked" : ""
-        } onchange="toggleCompletedTodo(this, ${todo.id})" />
+        <input 
+          type="checkbox" 
+          name="todo-checked" ${todo.isCompleted ? "checked" : ""}
+          onchange="toggleCompletedTodo(this, ${todo.id})" 
+        />
       </form>
-      <span class="${todo.isCompleted ? "completed" : ""}" style="${
-      todo.isCompleted ? "text-decoration: line-through;" : ""
-    }">${todo.text}</span>
+      <span 
+        class="${todo.isCompleted ? "completed" : ""},
+        ${todo.isCompleted ? "line-through" : ""}">
+        ${todo.text}
+      </span>
       <form onsubmit="deleteTodoById(event)">
         <input type="hidden" name="todo-id" value="${todo.id}" />
         <button type="submit" class="bg-rose-500 hover:bg-rose-600 py-1 px-4 text-white rounded" >X</button>
