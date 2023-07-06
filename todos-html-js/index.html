@@ -9,6 +9,12 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&display=swap"
       rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
@@ -50,25 +56,27 @@
             <!--  -->
           </ul>
 
+          <form
+            id="check-all-todos"
+            class="flex justify-start items-center w-full">
+            <button
+              type="submit"
+              class="check-all-todos text-slate-400 hover:text-slate-600 text-xl">
+              <i class="fa-solid fa-chevron-up"></i>
+            </button>
+          </form>
+
           <div class="flex justify-start text-slate-400 items-center w-full">
             <p id="unchecked-todos"></p>
           </div>
         </div>
       </section>
 
-      <div class="flex w-full max-w-lg justify-between items-center">
-        <form id="check-all-todos">
-          <button
-            type="submit"
-            class="check-all-todos bg-emerald-500 hover:bg-emerald-600 py-2 px-4 text-white rounded">
-            Check All Todos
-          </button>
-        </form>
-
+      <div class="flex w-full max-w-lg justify-end items-center">
         <form id="clear-completed-todos">
           <button
             type="submit"
-            class="clear-completed-todos bg-emerald-500 hover:bg-emerald-600 py-2 px-4 text-white rounded">
+            class="clear-completed-todos bg-rose-500 hover:bg-rose-600 py-2 px-4 text-white rounded">
             Clear Completed Todos
           </button>
         </form>

@@ -29,11 +29,13 @@ function renderTodos() {
           type="checkbox" 
           name="todo-checked" ${todo.isCompleted ? "checked" : ""}
           onchange="toggleCompletedTodo(this, ${todo.id})" 
+          class="w-6 h-6 rounded-full"
         />
       </form>
       <span 
-        class="${todo.isCompleted ? "completed" : ""},
-        ${todo.isCompleted ? "line-through" : ""}">
+        class="${
+          todo.isCompleted ? "completed line-through text-slate-400" : ""
+        }">
         ${todo.text}
       </span>
       <form onsubmit="deleteTodoById(event)">
