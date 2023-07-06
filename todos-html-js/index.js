@@ -29,7 +29,9 @@ function renderTodos() {
           type="checkbox" 
           name="todo-checked" ${todo.isCompleted ? "checked" : ""}
           onchange="toggleCompletedTodo(this, ${todo.id})" 
-          class="w-6 h-6 rounded-full"
+          class="w-6 h-6 rounded ${
+            todo.isCompleted ? "accent-emerald-600" : ""
+          }"
         />
       </form>
       <span 
